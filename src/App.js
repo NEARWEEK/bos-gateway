@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import "error-polyfill";
 import "bootstrap-icons/font/bootstrap-icons.css";
-import "@near-wallet-selector/modal-ui/styles.css";
 import "react-bootstrap-typeahead/css/Typeahead.css";
 import "react-bootstrap-typeahead/css/Typeahead.bs5.css";
 import "bootstrap/dist/js/bootstrap.bundle";
