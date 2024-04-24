@@ -1,8 +1,4 @@
 import { useEffect } from "react";
-import "bootstrap-icons/font/bootstrap-icons.css";
-import "react-bootstrap-typeahead/css/Typeahead.css";
-import "react-bootstrap-typeahead/css/Typeahead.bs5.css";
-import "bootstrap/dist/js/bootstrap.bundle";
 import "App.scss";
 import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
 import EmbedPage from "./pages/EmbedPage";
