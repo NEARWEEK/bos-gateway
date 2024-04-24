@@ -8,6 +8,9 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 const { merge } = require("webpack-merge");
 const loadPreset = require("./config/presets/loadPreset");
 const loadConfig = (mode) => require(`./config/webpack.${mode}.js`)(mode);
+const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 
 module.exports = function (env) {
   const { mode = "production" } = env || {};
@@ -19,6 +22,28 @@ module.exports = function (env) {
         path: paths.distPath,
         filename: "[name].bundle.js",
         publicPath: "/",
+      },
+      optimization: {
+        splitChunks: {
+          chunks: "all",
+        },
+        minimize: true,
+        minimizer: [
+          new TerserPlugin({
+            terserOptions: {
+              compress: {
+                unused: true,
+                dead_code: true,
+              },
+            },
+          }),
+          new UglifyJsPlugin({
+            uglifyOptions: {
+              compress: true,
+            },
+          }),
+          new CssMinimizerPlugin(),
+        ],
       },
       module: {
         rules: [

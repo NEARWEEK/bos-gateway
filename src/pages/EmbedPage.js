@@ -1,4 +1,3 @@
-import React from "react";
 import { Widget } from "near-social-vm";
 
 export default function EmbedPage() {
